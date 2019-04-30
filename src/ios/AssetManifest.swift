@@ -20,7 +20,7 @@ struct AssetManifest {
   init(data: Data) throws {
     let JSON: JSONObject
     do {
-      JSON = try JSONSerialization.jsonObject(with: data, options: []) as! JSONObject
+      JSON = try JSONSerialization.jsonObject(with: data, options: [.allowFragments]) as! JSONObject
     } catch {
       throw WebAppError.invalidAssetManifest(reason: "Error parsing asset manifest", underlyingError: error)
     }
